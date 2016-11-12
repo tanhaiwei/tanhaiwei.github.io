@@ -8,7 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/chart.css" media="screen">
+    <!--<link rel="stylesheet" type="text/css" href="stylesheets/chart.css" media="screen">-->
     <script type='text/javascript'>
       var _vds = _vds || [];
       window._vds = _vds;
@@ -37,22 +37,26 @@
       <h2><a class="white" href="http://tanhaiwei.zcool.com.cn/">跳转到我的站酷</a></h2>
     </section>
     <section class="main-content">
-      <div id="c1"></div>
-      <script>
+    <div id="c1"></div>
+    <!-- G2 code start -->
+    <script>
+      $.getJSON('../../static/data/diamond.json',function (data) {
+        var Stat = G2.Stat;
         var chart = new G2.Chart({
-  id: 'c1',
-  width: 1000,
-  height: 500
-});
-        var data = [
-  {"month":0,"tem":7,"city":"tokyo"},
-  {"month":1,"tem":6.9,"city":"tokyo"},
-  ...
-];
-chart.source(data); 
-          chart.line().position('month*tem').color('city');
-          chart.render();
-      </script>
+          id: 'c1',
+          width: 1000,
+          height: 500
+        });
+        chart.source(data);
+        chart.tooltip({
+          title: null
+        });
+        chart.polygon()
+          .position(Stat.bin.hex('carat*price', 0.03))
+          .color(Stat.summary.count(), 'blue'); // 指定颜色的计算方式，G2 默认提供了多种的计算方式：'red', 'blue', 'green', 'rainbow', 'hue', 'lightness', 'brightness'
+        chart.render();
+      }); 
+    </script>
 <!--
       <h3>
 <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
