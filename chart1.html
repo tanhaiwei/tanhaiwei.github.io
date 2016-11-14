@@ -1,22 +1,20 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <meta charset="utf-8">
-      <title>气泡图</title>
-      <link rel="stylesheet" href="https://os.alipayobjects.com/basement/s/prod/g2/static/doc-b57e62881a0344ecde9e68c4ce312143.css"/>
-      <!--如果不需要jquery ajax 则可以不引入-->
-      <script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
-
-      <!-- 引入 G2 脚本 --><script src="https://a.alipayobjects.com/g/datavis/g2/2.1.3/index.js"></script>
-    </head>
-<body>
-  <div id="c1"></div>
-    <!-- C1 code start -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>气泡图</title>
+    <link rel="stylesheet" href="https://os.alipayobjects.com/basement/s/prod/g2/static/doc-b57e62881a0344ecde9e68c4ce312143.css"/>
+    <!--如果不需要jquery ajax 则可以不引入-->
+    <script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
+    <!-- 引入 G2 脚本 --><script src="https://a.alipayobjects.com/g/datavis/g2/2.1.3/index.js"></script>
+  </head>
+  <body>
+    <div id="c1"></div>
+    <!-- G2 code start -->
     <script>
       $.getJSON('../../static/data/bubble.json',function(data){
         var chart = new G2.Chart({
           id: 'c1',
-          margin:0,
           width: 1000,
           height: 500
         });
@@ -50,13 +48,13 @@
         chart.legend('Country', false);
         chart.point().position('GDP*LifeExpectancy')
           .size('Population', 35, 5)
-          //.color('continent')
+          .color('continent')
           .opacity(0.65)
           .shape('circle')
           .tooltip('Country*Population*GDP*LifeExpectancy');
         chart.render();
       });
     </script>
-    <!-- C1 code end -->
-   </body>
- </html>
+    <!-- G2 code end -->
+  </body>
+</html>
