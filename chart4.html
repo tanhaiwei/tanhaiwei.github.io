@@ -29,10 +29,10 @@
       var frame = new Frame(data);
       frame = Frame.combinColumns(frame,['Florida','Texas','Arizona','Nevada'],'Revenue','City','name');
       var chart = new G2.Chart({
-        id: 'c1',
+        id: 'c4',
         margin:0,
-        width: 800,
-        height: 400
+        width: 1000,
+        height: 500
       });
       chart.source(frame, {
         'Revenue': {
