@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>hello world</title>
+    <title>图表颜色测试</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -39,7 +39,9 @@
       <!--<h2><a class="white" href="http://tanhaiwei.zcool.com.cn/">跳转到我的站酷</a></h2>-->
     </section>
     <section>
-    <div id="c1"></div>
+    <ul>
+      <li>
+        <div id="c1"></div>
     <!-- C1 code start -->
     <script>
       $.getJSON('../../static/data/bubble.json',function(data){
@@ -87,10 +89,10 @@
       });
     </script>
     <!-- C1 code end -->
-      </section>
-    
-    <section>
-    <div id="c2"></div>
+      </li>
+        
+      <li>
+        <div id="c2"></div>
     <!-- C2 code start -->
     <script>
       $.getJSON('../../static/data/scatter.json',function(data){
@@ -127,8 +129,10 @@
       });
     </script>
     <!-- C2 code end -->
-    
-    <div id="c3"></div>
+      </li>
+      
+      <li>
+        <div id="c3"></div>
     <!-- C3 code start -->
     <script>
       var data = [
@@ -184,10 +188,9 @@
       chart.render();
     </script>
     <!-- C3 code end -->
-    </section>
-    
-    <section>
-    <div id="c4"></div>
+      </li>
+      <li>
+        <div id="c4"></div>
     <!-- C4 code start -->
     <script>
       var data = [
@@ -226,6 +229,8 @@
       chart.render();
     </script>
     <!-- C4 code end -->
+      </li>
+    </ul>
     </section>
   </body>
 </html>
