@@ -39,17 +39,14 @@
       <!--<h2><a class="white" href="http://tanhaiwei.zcool.com.cn/">跳转到我的站酷</a></h2>-->
     </section>
     <div id="c1"></div>
-    <div id="c2"></div>
-    <div id="c3"></div>
-    <div id="c4"></div>
     <!-- C1 code start -->
     <script>
       $.getJSON('../../static/data/bubble.json',function(data){
         var chart = new G2.Chart({
           id: 'c1',
           margin:0,
-          width: 800,
-          height: 400
+          width: 1000,
+          height: 500
         });
         chart.source(data, {
           'LifeExpectancy': {
@@ -90,6 +87,7 @@
     </script>
     <!-- C1 code end -->
     
+    <div id="c2"></div>
     <!-- C2 code start -->
     <script>
       $.getJSON('../../static/data/scatter.json',function(data){
@@ -102,8 +100,8 @@
         var chart = new G2.Chart({
           id: 'c2',
           margin:0,
-          width : 800,
-          height : 400
+          width : 1000,
+          height : 500
         });
         chart.source(data, {
           weight: {
@@ -127,6 +125,7 @@
     </script>
     <!-- C2 code end -->
     
+    <div id="c3"></div>
     <!-- C3 code start -->
     <script>
       var data = [
@@ -167,10 +166,10 @@
       var chart = new G2.Chart({
         id : 'c3',
         margin:0,
-        width : 800,
-        height : 400,
+        width : 1000,
+        height : 500,
         plotCfg: {
-          margin: [20, 60, 80, 120]
+        margin: [20, 60, 80, 120]
         }
       });
       chart.source(frame);
@@ -182,6 +181,9 @@
       chart.render();
     </script>
     <!-- C3 code end -->
+    
+    
+    <div id="c4"></div>
     <!-- C4 code start -->
     <script>
       var data = [
