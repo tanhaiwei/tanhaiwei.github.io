@@ -36,22 +36,18 @@
         <div id="c1"></div>
     <!-- G2 code start -->
     <script>
-      $.getJSON('../../static/data/diamond.json',function (data) {
-        var Stat = G2.Stat;
-        var chart = new G2.Chart({
-          id: 'c1',
-          width: 1000,
-          height: 500
-        });
-        chart.source(data);
-        chart.tooltip({
-          title: null
-        });
-        chart.polygon()
-          .position(Stat.bin.hex('carat*price', 0.03))
-          .color(Stat.summary.count(), 'blue'); // 指定颜色的计算方式，G2 默认提供了多种的计算方式：'red', 'blue', 'green', 'rainbow', 'hue', 'lightness', 'brightness'
-        chart.render();
-      }); 
+      var chart = new G2.Chart({
+        id: 'c1',
+        width: 1000,
+        height: 500
+      });
+      var data = [
+        {"month":0,"tem":7,"city":"tokyo"},
+        {"month":1,"tem":6.9,"city":"tokyo"},
+      ];
+      chart.source(data);
+      chart.line().position('month*tem').color('city');
+      chart.render();
     </script>
     <!-- G2 code end -->
     <div id="test" class="test">
