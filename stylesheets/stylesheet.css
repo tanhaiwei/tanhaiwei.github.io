@@ -15,9 +15,12 @@ a {
   a:hover {
     text-decoration: underline; }
 ul {
-  width:auto;
   margin:0;
   padding:0; }
+.chartbox {
+  width:1020px;
+  margin:0;
+  padding:0;}
 .white{
   font-size:16px;
   color:#ffffff;}
