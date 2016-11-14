@@ -41,97 +41,12 @@
     <section>
     <ul>
       <li>
-        <div id="c1"></div>
-    <!-- C1 code start -->
-    <script>
-      $.getJSON('../../static/data/bubble.json',function(data){
-        var chart = new G2.Chart({
-          id: 'c1',
-          margin:0,
-          width: 1000,
-          height: 500
-        });
-        chart.source(data, {
-          'LifeExpectancy': {
-            alias: '人均寿命（年）'
-          },
-          'Population': {
-            type: 'pow',
-            alias: '人口总数'
-          },
-          'GDP': {
-            alias: '人均国内生产总值($)',
-            tickCount: 10
-          },
-          'Country': {
-            alias: '国家/地区'
-          }
-        });
-        chart.axis('GDP', {
-          // 格式化坐标轴的显示
-          formatter: function (value) {
-            return (value / 1000).toFixed(0) + 'k';
-          }
-        });
-        chart.tooltip({
-          title: null // 不显示默认标题
-        });
-        // 该图表默认会生成多个图例，设置不展示 Population 和 Country 两个维度的图例
-        chart.legend('Population', false);
-        chart.legend('Country', false);
-        chart.point().position('GDP*LifeExpectancy')
-          .size('Population', 35, 5)
-          //.color('continent')
-          .opacity(0.65)
-          .shape('circle')
-          .tooltip('Country*Population*GDP*LifeExpectancy');
-        chart.render();
-      });
-    </script>
-    <!-- C1 code end -->
-    
+        <!--<div id="c1"></div>-->
+        <iframe src="../chart1.html" width="1000px" height="500px" scrolling="[OPTION]"></iframe>
       </li>
         
       <li>
-        
-        <div id="c2"></div>
-    <!-- C2 code start -->
-    <script>
-      $.getJSON('../../static/data/scatter.json',function(data){
-        var frame = new G2.Frame(data);
-        var hAvg = G2.Frame.mean(frame,'height'); // 计算体重的均值
-        var wAvg = G2.Frame.mean(frame,'weight'); // 计算身高均值
-        var lineCfg = { // 线的配置信息
-          stroke: '#94E08A'
-        };
-        var chart = new G2.Chart({
-          id: 'c2',
-          margin:0,
-          width : 1000,
-          height : 500
-        });
-        chart.source(data, {
-          weight: {
-            alias: '体重（kg）'
-          },
-          height: {
-            alias: '身高（cm）'
-          }
-        });
-        chart.tooltip({
-          title: null,
-          crosshairs: {
-            type: 'cross'
-          }
-        });
-        chart.point().position('height*weight').color('gender', ['rgba(223, 83, 83, 0.7)', 'rgba(119, 152, 191, 0.7)']).shape('gender', ['circle', 'diamond']).size(6).tooltip('gender*height*weight');
-        chart.guide().tag([hAvg, 'min'], [hAvg, 'max'], '身高平均值: ' + hAvg.toFixed(2), {line:lineCfg});
-        chart.guide().tag(['min', wAvg], ['max', wAvg], '体重平均值: ' + wAvg.toFixed(2), {line:lineCfg});
-        chart.render();
-      });
-    </script>
-    <!-- C2 code end -->
-
+        <iframe src="../chart2.html" width="1000px" height="500px" scrolling="[OPTION]"></iframe>
       </li>
       
       <li>
