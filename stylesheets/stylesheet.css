@@ -63,11 +63,11 @@ a {
 
 @media screen and (min-width: 64em) {
   .page-header {
-    padding: 5rem 6rem; } }
+    padding: 3rem 3rem; } }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
   .page-header {
-    padding: 3rem 4rem; } }
+    padding: 3rem 3rem; } }
 
 @media screen and (max-width: 42em) {
   .page-header {
@@ -252,6 +252,3 @@ a {
   box-shadow: 0 2px 8px rgba(0,0,0,.05);
   width:600px;
   height:400px; }
-.text {
-  font:20px;
-  color:#00cf78;}
