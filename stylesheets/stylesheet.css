@@ -253,3 +253,6 @@ a {
   box-shadow: 0 2px 8px rgba(0,0,0,.05);
   width:600px;
   height:400px; }
+.text {
+  padding: auto;
+  margin: auto;}
