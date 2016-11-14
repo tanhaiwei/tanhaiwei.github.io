@@ -246,12 +246,12 @@ a {
   .site-footer {
     font-size: 0.9rem; } }
 .test {
-  margin: 0;
-  padding: 100px 100px 100px 100px;
+  margin:120px 0 0 0;
+  padding:100px 100px 100px 100px;
   border:1px solid rgba(0,0,0,.02);
   box-shadow: 0 2px 8px rgba(0,0,0,.05);
   width:600px;
   height:400px; }
 .text {
   font:20px;
-  color: #00cf78;}
+  color:#00cf78;}
