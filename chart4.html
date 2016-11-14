@@ -43,7 +43,9 @@
           alias: '化妆品'
         }
       });
-      chart.areaStack().position('name*Revenue').color('City');
+      chart.areaStack().position('name*Revenue')
+        .color('z', ['#4A6AEA', '#00CF78', '#C9E055', '#F9C21E', '#F76F7A']); // 使用传入的指定颜色
+        //.color('City');
       chart.render();
     </script>
     <!-- G2 code end -->
