@@ -39,7 +39,7 @@
           }
         });
         chart.point().position('height*weight')
-          .color('gender', ['rgba(74, 106, 233, 0.7)', 'rgba(247, 111, 122, 0.7)'])
+          .color('gender', ['rgba(247, 111, 122, 0.7)', 'rgba(74, 106, 233, 0.7)'])
           .shape('gender', ['circle', 'diamond'])
           .size(6).tooltip('gender*height*weight');
         chart.guide().tag([hAvg, 'min'], [hAvg, 'max'], '身高平均值: ' + hAvg.toFixed(2), {line:lineCfg});
