@@ -246,8 +246,8 @@ a {
   .site-footer {
     font-size: 0.9rem; } }
 .test {
-  margin: 0 0 0 0;
-  padding: 100 100 100 100;
+  margin: auto;
+  padding: 100px 100px 100px 100px;
   border:1px solid rgba(0,0,0,.02);
   box-shadow: 0 2px 8px rgba(0,0,0,.05);
   width:600px;
