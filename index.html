@@ -8,6 +8,30 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    //以下初始化代码复制粘贴到head之前即可
+<script type="text/javascript">
+    var _paq = _paq || [];
+    _paq.push(['trackPageView']);
+    _paq.push(['trackAllContentImpressions']);
+    _paq.push(['enableLinkTracking']);
+    _paq.push(['enableHeartBeatTimer']);
+
+//    _paq.push(['setUserId', 'userID']); //若没有userID，则可以不设置；数据类型请转为字符串传递，整型无效
+
+
+(function() {
+    console.log(_paq);
+
+    var u="https://tracker.analyzer.datatist.cn/";//请设置技术人员提供的相关url
+    _paq.push(['setTrackerUrl', u+'datatist.php']);
+    _paq.push(['setSiteId', 5]);//请设置技术人员提供的相关SiteId
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'datatist.js'; s.parentNode.insertBefore(g,s);
+    console.log("send");
+  })();
+</script>
+<noscript><p>< img src="https://tracker.analyzer.datatist.cn/datatist.php?idsite=5" style="border:0;" alt="" /></p ></noscript>
+    
     <script type='text/javascript'>
       var _vds = _vds || [];
       window._vds = _vds;
