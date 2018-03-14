@@ -14,18 +14,23 @@
 
 <!-- Datatist -->
 <script type="text/javascript">
-  var _paq = _paq || [];
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//tracker.analyzer.datatist.cn/";
-    _paq.push(['setTrackerUrl', u+'datatist.php']);
-    _paq.push(['setSiteId', 24]);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'datatist.js'; s.parentNode.insertBefore(g,s);
-  })();
+window.dtTracker = window.dtTracker || function() {
+    (dtTracker.q = dtTracker.q || []).push(arguments) };
+dtTracker.l = +new Date;
+dtTracker('setTrackApiUrl', 'https://t.analyzer.datatist.cn/c.gif');
+dtTracker('setSiteId', '6eAReveM7nSGTTzA');
+dtTracker('pageview');
+(function() {
+    var d = document,
+        g = d.createElement('script'),
+        s = d.getElementsByTagName('script')[0];
+    g.type = 'text/javascript';
+    g.async = true;
+    g.defer = true;
+    g.src = 'https://t.analyzer.datatist.cn/tracker.min.js';
+    s.parentNode.insertBefore(g, s)
+})();
 </script>
-<noscript><p><img src="//tracker.analyzer.datatist.cn/datatist.php?idsite=24" style="border:0;" alt="" /></p></noscript>
 <!-- End Datatist Code -->
     <script type='text/javascript'>
       var _vds = _vds || [];
