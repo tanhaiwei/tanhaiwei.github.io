@@ -137,9 +137,19 @@ var _hmt = _hmt || [];
         <p><a href="index.html">返回首页</a> </p>
         <p><button>test</button> </p>
         <p><a href="#test2">test2</a> </p>
+        <script type='text/javascript'>
+// Send a "Played song" event to Mixpanel
+// with a property "genre"
+  $('#test2').on('click', function() {
+  mixpanel.track(
+    "Played song",
+    {"genre": "hip-hop"}
+);
+  });
+</script>
+
       </li>
     </ul>
-
 
 
   </body>
