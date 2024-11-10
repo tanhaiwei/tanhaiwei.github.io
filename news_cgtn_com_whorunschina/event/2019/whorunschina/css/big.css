@@ -1,0 +1,145 @@
+@media screen and (min-width:1800px){ 
+	/* 人大代表数量 */
+	[data-step=all] .allNum{ 
+		margin-top:-1.2rem; 
+		width: 11.5rem;  
+		margin-left:-5.75rem; 
+	} 
+	[data-step=all] .allNumWrap{
+		height: 0.3rem; 
+	}
+	[data-step=all] .allNumWrap .img{
+		width:2rem;
+		height:0.14rem; 
+		margin-top: 0.1rem;  
+	} 
+	[data-step=all] .allNumWrap p{ 
+		font-size: 0.3rem;
+	}
+	[data-step=all] .allNum>p{
+		margin-top: 0.5rem; 
+		font-size:0.16rem;
+	}
+	/* 设置title样式 */
+	.step .subtitle { 
+		top:0.1rem;   
+	}  
+	.titleC p{   
+		line-height: 0.24rem;
+		font-size: 0.26rem; 
+	}
+	.titleC p:nth-child(2){ 
+		margin-top:0.05rem;
+	} 
+	[data-step=age] .titleL, 
+	[data-step=age] .titleR,
+	[data-step=major] .titleL, 
+	[data-step=major] .titleR{
+		top:0.5rem;
+	}
+	
+	.step .space {
+		height: 1rem;
+	} 
+	[data-step=gender] .panel:nth-child(4){
+		margin-top:2.8rem;
+	}  
+	[data-step=ethnicity] .panel:nth-child(3){
+		margin-top:100vh;
+	} 
+	[data-step=edu] .panel:nth-child(3),
+	[data-step=major] .panel:nth-child(3){
+		margin-top:3.5rem;
+	}  
+	  
+	[data-step=party] .panel:nth-child(3){
+		margin-top:2rem;
+	} 
+	.endDes{ 
+		width: 5rem;  
+		margin-left:-2.5rem;
+	}
+	.tag{
+		width: 5.1rem;   
+		padding: 0 0.4rem;
+		box-sizing: content-box;
+	}
+	.tag .logo{
+		width: 1.6rem;
+		height: 0.5rem;
+		margin-left:1.75rem;
+	}
+	.tag .bdsharebuttonbox{
+		margin:0.75rem 0 0 1.81rem;
+	}
+	.statistics{
+		height: 0.4rem;
+		font-size: 0.16rem;
+		line-height: 0.4rem;
+		padding-top: 0.16rem;  
+	} 
+	.tag ul{
+		padding: 0.07rem 0 0.17rem;
+		margin-bottom: 0.1rem; 
+	}
+	.tag ul li{ 
+		padding-left: 0.18rem;
+		line-height: 0.24rem;
+		font-size:0.12rem;
+	}
+	.tag ul li:before{ 
+		width: 0.06rem;
+		height:  0.06rem; 
+		top:0.1rem;
+		left:0.02rem; 
+	}
+	.tag .des{
+		line-height: 0.25rem;
+		font-size: 0.12rem;
+	} 
+	
+	.startWords{ 
+		font-size: 0.16rem;
+		line-height: 0.35rem;
+		width: 5rem; 
+	}
+	.startWords img{
+		width: 3rem;
+		height: 3rem;
+		margin-top:0.3rem;
+	}
+	.startWords .intro{ 
+		margin-top:0.4rem;
+		padding:0.34rem 0.4rem;
+		margin-bottom: 0.2rem; 
+		box-shadow: 0.05rem 0.05rem 0.14rem rgba(188,188,188,0.5); 
+	} 
+	.startPanel .bdsharebuttonbox {
+		margin-top:0.4rem;
+	}
+	/* 带点的框 */
+	.panel{
+		width: 5rem; 
+		padding:0.3rem 0.3rem 0.3rem 0.6rem; 
+		box-shadow: 0.05rem 0.05rem 0.14rem rgba(188,188,188,0.5); 
+		line-height: 0.35rem;
+		font-size: 0.16rem; 
+	}
+	.panel:before{ 
+		width: 0.16rem;
+		height:0.16rem; 
+		top:0.42rem;
+		left:0.25rem; 
+	}
+	.canscroll .bdshare-button-style0-32 a{
+		width: 0.32rem;
+		line-height: 0.32rem;
+		height: 0.32rem;  
+		margin: 0.06rem 0.06rem 0.06rem 0;
+	}
+	.mwlDes{
+		margin:0.16rem 0; 
+		font-size: 0.16rem;
+		line-height: 0.25rem; 
+	}
+}

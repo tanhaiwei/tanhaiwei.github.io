@@ -1,0 +1,25 @@
+<svg id="分组_22" data-name="分组 22" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #385899;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <circle id="椭圆形_copy_29" data-name="椭圆形 copy 29" class="cls-1" cx="12" cy="12" r="12"/>
+  <g id="分组_32_copy_5" data-name="分组 32 copy 5" transform="translate(5 5)">
+    <rect id="矩形" class="cls-2" width="14" height="14"/>
+    <g id="分组_3" data-name="分组 3">
+      <rect id="矩形-2" data-name="矩形" class="cls-2" width="14" height="14"/>
+      <path id="路径" class="cls-3" d="M3.914,0A3.208,3.208,0,0,0,2.67.223,2.451,2.451,0,0,0,1.29,2.8V4.118H0V6.3H1.29v6.3H3.914V6.3H5.7L5.95,4.118H3.914v-.98a1.133,1.133,0,0,1,.113-.646c.113-.2.339-.289.7-.289h1.2V.022H3.914Z" transform="translate(4.2 0.7)"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Who runs China?">
+    <meta property="og:description" content="Portraits of the deputies to the 13th NPC.">
+    <!--
+    <meta property="og:image" content="http://app.polomi.com/tmp/tmp/%E4%B8%A4%E4%BC%9A/demo/demo/t27/img/thumbnail.png">
+    <meta property="og:url" content="http://app.polomi.com/tmp/tmp/%E4%B8%A4%E4%BC%9A/demo/demo/t27"> -->
+    <!-- 	<meta property="og:image" content="https://newstest.cgtn.com/event/2019/twoConference/img/lianjie2.png">
+    <meta property="og:url" content="https://newstest.cgtn.com/event/2019/twoConference/index.html"> -->
+    <meta property="og:image" content="img/lianjie2.png">
+    <meta property="og:url" content="https://news.cgtn.com/whorunschina">
+
+    <title>Who runs China?</title>
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="css/init.css" />
+
+    <link rel="stylesheet" type="text/css" href="js/lib/chosen_v1.8.7/chosen.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/e.css" />
+
+    <link rel="stylesheet" type="text/css" href="css/big.css" />
+
+    <link rel="stylesheet" href="js/lib/share/share.min.css">
+
+    <script type="text/javascript" src='js/util/clipboard.min.js'></script>
+    <script src="js/isMobile.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/lib/chosen_v1.8.7/chosen.jquery.js"></script>
+    <script src="js/scaleToWindow.js"></script>
+
+    <script>
+        function isWeiXin() {
+            var ua = window.navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function wechatjsCallback() {
+            var temp_url = 'https://wechat.cgtn.com/socialweb/social/weixin/getKeys.do';
+            $.ajax({
+                'url': temp_url + '?url=' + encodeURIComponent(location.href.split('#')[0]),
+                'type': 'GET',
+                'success': function (data) {
+                    // console.log(data);
+                    wx.config({
+                        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                        appId: 'wxd61ff47456d31b8e', // 'wx63a427e8742b7a71', // 必填，企业号的唯一标识，此处填写企业号corpid
+                        timestamp: data.data.timestamp, // 必填，生成签名的时间戳
+                        nonceStr: data.data.nonceStr, // 必填，生成签名的随机串
+                        signature: data.data.signature, // 必填，签名，见附录1
+                        jsApiList: ['onMenuShareTimeline',
+                            'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                    });
+                }
+            });
+
+            wx.ready(function () {
+                //IOS系统分享时读取图片路径会出现问题 用 encodeURI 来处理下
+                var url = location.href.indexOf('newstest.cgtn.com') > -1 ?
+                    "https://newstest.cgtn.com/event/2019/twoConference/img/lianjie2.png" :
+                    'https://news.cgtn.com/event/2019/whorunschina/img/lianjie2.png';
+                var img_url = encodeURI(url);
+                // console.log(img_url);
+
+                //分享到朋友圈
+                wx.onMenuShareTimeline({
+                    title: "Who runs China?", // 分享标题
+                    desc: 'Portraits of the deputies to the 13th NPC.',
+                    link: window.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    imgUrl: img_url, // 分享图标
+
+                    success: function () {
+                        console.log('已分享');
+                    },
+                    cancel: function () {
+                        console.log('已取消');
+                    }
+                });
+
+                //分享给微信好友
+                wx.onMenuShareAppMessage({
+                    title: "Who runs China?", // 分享标题
+                    desc: 'Portraits of the deputies to the 13th NPC.',
+                    link: window.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    imgUrl: img_url, // 分享图标
+                    type: '', // 分享类型,music、video或link，不填默认为link
+                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+
+                    success: function () {
+                        console.log('已分享');
+                    },
+                    cancel: function () {
+                        console.log('已取消');
+                    }
+                });
+            });
+        }
+
+        if (isWeiXin()) {
+            var head = document.getElementsByTagName('head')[0];
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = 'https://res.wx.qq.com/open/js/jweixin-1.2.0.js';
+            head.appendChild(script);
+            script.onreadystatechange = function () {
+                if (this.readyState == 'complete')
+                    wechatjsCallback();
+            }
+            script.onload = function () {
+                wechatjsCallback();
+            }
+
+        }
+    </script>
+    <script>
+        // TODO: baidu 监控
+        // var _hmt = _hmt || [];
+        // (function () {
+        //     var hm = document.createElement("script");
+        //     hm.src = "https://hm.baidu.com/hm.js?4e16c0628b3b2b8f7da0f837cc007dfa";
+        //     var s = document.getElementsByTagName("script")[0];
+        //     s.parentNode.insertBefore(hm, s);
+        // })();
+
+        // 监控
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-89339688-1', 'auto', 'webTracker', {
+            'useAmpClientId': true
+        });
+
+        ga(function () {
+            var clientID = ga.getByName('webTracker').get('clientId');
+            ga('webTracker.set', 'dimension14', clientID);
+        });
+        ga('webTracker.require', 'ec');
+
+        // ga('webTracker.set', 'dimension1', 新闻id);
+
+        ga('webTracker.send', 'pageview');
+
+        if (isMobile.any) {
+            $("head").append('<link rel="stylesheet" type="text/css" href="css/mobile.css"/>');
+            $("head").append("<script src='js/util/flexible.js'><\/script>");
+        } else {
+            var html = document.getElementsByTagName("html")[0];
+            var whdef = 100 / 1800; // 表示3240的设计图,使用100PX的默认值
+            var wH = window.innerHeight; // 当前窗口的高度
+            var wW = window.innerWidth > 1800 ? window.innerWidth : 1800; // 当前窗口的宽度
+            var rem = wW * whdef; // 以默认比例值乘以当前窗口宽度,得到该宽度下的相应FONT-SIZE值
+            html.style.fontSize = rem + "px";
+            window.addEventListener('resize', function () {
+                wH = window.innerHeight; // 当前窗口的高度
+                wW = window.innerWidth > 1800 ? window.innerWidth : 1800; // 当前窗口的宽度
+                rem = wW * whdef; // 以默认比例值乘以当前窗口宽度,得到该宽度下的相应FONT-SIZE值
+                html.style.fontSize = rem + "px";
+            });
+        }
+    </script>
+
+</head>
+
+<body>
+    <div style="display:none;"><img src="img/thumbnail.png" alt=""></div>
+    <img src="img/lianjie2.png" style="width: 0;height: 0;" />
+    <span style="font-size: 0;width: 0;height: 0;">Portraits of the deputies to the 13th NPC.</span>
+    <!-- 菜单按钮 -->
+    <div id="scaleContainer">
+        <div id="main">
+            <div id="background"></div>
+            <canvas id="myCanvas"></canvas>
+            <svg id="mysvg"></svg>
+            <div id="foreground"></div>
+            <div id="mrb_foreground" class="none">
+                <div id="diagram1" class="none">
+                    <svg xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <clipPath id="clip_area0">
+                                <path 
+                                id="clip_area0_path"
+                                class="area-path"
+                                transform="translate(0,0)"
+                                ></path>
+                            </clipPath>
+                            <clipPath id="clip_area1">
+                                <path 
+                                id="clip_area1_path"
+                                class="area-path"
+                                transform="translate(0,0)"
+                                ></path>
+                            </clipPath>
+                            <clipPath id="clip_area2">
+                                <path 
+                                id="clip_area2_path"
+                                class="area-path"
+                                transform="translate(0,0)"
+                                ></path>
+                            </clipPath>
+                            <clipPath id="clip_area3">
+                                <path 
+                                id="clip_area3_path"
+                                class="area-path"
+                                transform="translate(0,0)"
+                                ></path>
+                            </clipPath>
+                            <clipPath id="clip_area4">
+                                <path 
+                                id="clip_area4_path"
+                                class="area-path"
+                                transform="translate(0,0)"
+                                ></path>
+                            </clipPath>
+                            <clipPath id="clip_area5">
+                                <path 
+                                id="clip_area5_path"
+                                class="area-path"
+                                transform="translate(0,0)"
+                                ></path>
+                            </clipPath>
+                            <clipPath id="clip_area6">
+                                <path 
+                                id="clip_area6_path"
+                                class="area-path"
+                                transform="translate(0,0)"
+                                ></path>
+                            </clipPath>
+                            <clipPath id="clip_area7">
+                                <path 
+                                id="clip_area7_path"
+                                class="area-path"
+                                transform="translate(0,0)"
+                                ></path>
+                            </clipPath>
+                            <clipPath id="clip_area8">
+                                <path 
+                                id="clip_area8_path"
+                                class="area-path"
+                                transform="translate(0,0)"
+                                ></path>
+                            </clipPath>
+                            <clipPath id="clip_area9">
+                                <path 
+                                id="clip_area9_path"
+                                class="area-path"
+                                transform="translate(0,0)"
+                                ></path>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    <img class="img-text" src="img/d1-text.png" alt="text">
+                    <img class="d1-legend" src="img/d1-legend.png">
+                </div>
+                
+                <div id="diagram2" class="none">
+                    <img class="d2-legend" src="img/d2-legend.png">
+                    <div id="d2_spp_txt" class="spp-txt">
+                        <p data-d2name="sppPublic security">Public security</p>
+                        <p data-d2name="sppConflict">Conflict</p>
+                        <p data-d2name="sppCorruption and bribery">Corruption and bribery</p>
+                        <p data-d2name="sppSmuggling">Smuggling</p>
+                        <p data-d2name="sppSupervision">Supervision</p>
+                        <p data-d2name="sppCrime">Crime</p>
+                        <p data-d2name="sppThe people">The people</p>
+                        <p data-d2name="sppWork-related crime">Work-related crime</p>
+                        <p data-d2name="sppLegitimate rights and interests">Legitimate rights and interests</p>
+                        <p data-d2name="sppImpartial law enforcement">Impartial law enforcement</p>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="d2_fill_0" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#B4DCE8"/>
+                                <stop offset="100%" style="stop-color:#F3E4CD"/>
+                            </linearGradient>
+                            <linearGradient id="d2_fill_1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#8dcee5"/>
+                                <stop offset="100%" style="stop-color:#fc6a3a"/>
+                            </linearGradient>
+                            <linearGradient id="d2_fill_2" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#687bd7"/>
+                                <stop offset="100%" style="stop-color:#f42752"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div id="d2_spc_txt" class="spc-txt">
+                        <p data-d2name="spcPublic security">Public security</p>
+                        <p data-d2name="spcConflict">Conflict</p>
+                        <p data-d2name="spcMaritime affairs">Maritime affairs</p>
+                        <p data-d2name="spcLegitimate rights and interests">Legitimate rights and interests</p>
+                        <p data-d2name="spcCriminal">Criminal</p>
+                        <p data-d2name="spcLegal person">Legal person</p>
+                        <p data-d2name="spcJudicial justice">Judicial justice</p>
+                        <p data-d2name="spcReform">Reform</p>
+                        <p data-d2name="spcSupervision">Supervision</p>
+                        <p data-d2name="spcIntellectual property rights">Intellectual property rights</p>
+                    </div>
+                </div>
+            
+                <div id="diagram3" class="none">
+                    <svg id="diagram3_svg" xmlns="http://www.w3.org/2000/svg"></svg>
+                </div>
+            
+                <div id="diagram4" class="none">
+                    <svg xmlns="http://www.w3.org/2000/svg"></svg>
+                </div>
+
+                <div id="diagram5" class="none">
+                    <img class="d5-title" src="img/d5-title.png" alt="Title">
+                    <svg xmlns="http://www.w3.org/2000/svg"></svg>
+                    <p id="diagram5_year" class="year"></p>
+                </div>
+            </div>
+            <img class="title-white" src="img/title-white.svg" />
+            <img class="title-red" src="img/title-red.svg" />
+            <img class="logo" src="img/CGTNlogo.svg"
+                style="width: 160px;height: 50px;position: absolute;top:50px;left:50%;margin-left:-80px;" />
+            <img class="arrow-white" src="img/arrow-white.svg" />
+            <img class="arrow-red" src="img/arrow-red.svg" />
+
+        </div>
+        <div class="allNum">
+            <div class="allNumWrap">
+                <div class="img"></div>
+                <p class="fontWeight">Number of NPC Deputies</p>
+                <div class="img"></div>
+            </div>
+            <p class="fontWeight">2,975</p>
+        </div>
+        <div class="endDes">
+            Each of the 2,975 deputies is tasked with voicing the interests and concerns of millions of people in one's region. Hover over each dot to learn more about a deputy.
+        </div>
+    </div>
+    <div id="personalWrap">
+        <div id="personalTag"></div>
+
+        <div class="hanPanel"></div>
+    </div>
+
+    <div id="mrb_tooltip"></div>
+
+    <!-- remove body margin top -->
+    <span style="opacity: 0; pointer-events: none; height: 0;">&nbsp;</span>
+    <section id='scroll'>
+        <div class='scroll__text'>
+            <div class='step' data-step='svgWordMove'>
+            </div>
+            <div class='step startWords' data-step='random'>
+                <div class="startPanel">
+                    <img class="stars" src="img/start.svg" />
+                    <div class="intro">
+                        China's Two Sessions is one of the country's most important political events. Each year in March, thousands of representatives gather in Beijing to propose and announce policies that will shape the country's development.
+                    </div>
+                    <div class="intro">
+                        During the event, the National People's Congress (NPC) convened its deputies representing the interests of their communities throughout the country. As China's top legislature and highest organ of state power, the NPC gathers about 3,000 deputies to discuss national affairs. But who are they? What are their educational backgrounds? What ethnic groups do they belong to?
+                    </div>
+                    <div class="bdsharebuttonbox social-share" data-sites="wechat,twitter,facebook"
+                        data-description="Portraits of the deputies to the 13th NPC." data-wechatQrcodeTitle="abc"
+                        data-wechatQrcodeHelper="edc">
+                        <!-- 						<a href="#" class="bds_weixin"
+                      data-cmd="weixin" title="分享到微信"></a>
+                      <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+                      <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+                      <a href="javascript:void(0)" id="copy1" class="bds_copy" data-clipboard-text=''  title="分享到复制网址">
+                        <p>Copy to clipboard</p>
+                      </a> -->
+                    </div>
+                </div>
+            </div>
+            <div class='step' data-step='all'>
+                <p class="allDetail panel">
+                    This year, exactly <span class="backgroundRed">2,975</span> deputies attended the second session of the 13th NPC. Generally, each congress is elected for a term of five years, and a session is held each year. Each dot represents one deputy.
+                </p>
+                <div class="allNum">
+                    <div class="allNumWrap">
+                        <div class="img"></div>
+                        <p class="fontWeight">Number of NPC Deputies</p>
+                        <div class="img"></div>
+                    </div>
+                    <p class="fontWeight">2,975</p>
+                </div>
+            </div>
+            <div class='step' data-step='gender'>
+                <div class="subtitle">
+                    <div class="titltW">
+                        <div class="titleL"></div>
+                        <div class="titleC">
+                            <P>Proportion of female<span>&nbsp;</span></p>
+                            <p>deputies increased</P>
+                        </div>
+                        <div class="titleR"></div>
+                    </div>
+                </div>
+                <div class="sex">
+                    <div class="sexWrap">
+                        <div class="man headWrap">
+                            <img src="img/man.svg" />
+                            <div>Male</div>
+                            <div>2,233</div>
+                        </div>
+                        <div class="woman headWrap">
+                            <img src="img/woman.svg">
+                            <div>Female</div>
+                            <div>742</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space"></div>
+                <div class="panel">
+                    Among the 2,975 deputies to the 13th NPC, there are <span class="backgroundBlue">2,233 males</span>
+                    and <span class="backgroundRed2">742 females</span>.
+                </div>
+                <div class="panel">
+                    We see more women are being represented. At this session, female deputies account for 24.94 percent of the total, up from <span class="backgroundRed">20.2</span> percent during the 10th NPC (2003-2008).
+                    <p class="mwlDes">
+                        The female deputy's proportion since 2003
+                    </p>
+                    <img src="img/mwl.svg" class="mwl" />
+                </div>
+            </div>
+            <div class="step" data-step="age">
+                <div class="subtitle">
+                    <div class="titltW">
+                        <div class="titleL"></div>
+                        <div class="titleC">
+                            <P>Post-60s: Backbone of NPC</p>
+                            <p>Post-90s: More women than men</P>
+                        </div>
+                        <div class="titleR"></div>
+                    </div>
+                </div>
+                <div class="space"></div>
+                <div class="panel">
+                    In terms of age, over half of the deputies were born in the 1960s, bringing the congress's <span class="backgroundRed">average age</span> to <span class="backgroundRed">53.77</span> years.
+                </div>
+                <div class="panel">
+                    Among others, <span class="backgroundRed">1,672 deputies were born in the 1960s</span>, taking up
+                    over a half of
+                    the total. They are the backbone of China's top legislature.
+                </div>
+                <div class="panel">
+                    Meanwhile, the younger the deputies, the more balanced the gender ratio.
+                </div>
+            </div>
+            <div class='step' data-step='ethnicity'>
+                <div class="subtitle">
+                    <div class="titltW">
+                        <div class="titleL"></div>
+                        <div class="titleC">
+                            <p>The most well-represented<span>&nbsp;</span></p>
+                            <p>ethnic group: Tatar</p>
+                        </div>
+                        <div class="titleR"></div>
+                    </div>
+                </div>
+                <div class="space"></div>
+                <div class="panel">
+                    The gathering also draws deputies from all of <span class="backgroundRed">China's 56 ethnicities</span>. The largest group of deputies comes from the <span class="backgroundRed">Han</span> nationality, making up 85 percent of the attendees. This is close to the roughly 92 percent of Han Chinese in the general population. The second largest group in raw numbers comes from the Hui nationality with 62 deputies.
+                </div>
+                <div class="panel">
+                    The ethnicities of the deputies can also be grouped based on how well represented they are compared with the general population. As such, the <span class="backgroundRed">Tatar</span> people are the most represented, with one deputy for every 3,600 members from the ethnic group within China. The Lahu is the least represented with one for every 500,000, and the Han comes second with one for every 480,000.
+                </div>
+            </div>
+            <div class='step' data-step='edu'>
+                <div class="subtitle">
+                    <div class="titltW">
+                        <div class="titleL"></div>
+                        <div class="titleC">
+                            <P>Nine in 10 deputies hold a<span>&nbsp;</span></p>
+                            <p>bachelor's degree or above</P>
+                        </div>
+                        <div class="titleR"></div>
+                    </div>
+                </div>
+                <div class="space"></div>
+                <div class="panel">
+                    The educational backgrounds of the deputies reflect the country's standards for its government. Out of the 2,198 deputies that we have educational data for, 88.5 percent of them have a bachelor's degree or higher. <span class="backgroundRed">Those with a master's degree made up the largest group (836)</span>, while PhDs come second (584).
+                </div>
+                <div class="panel">
+                    For those with degrees higher than a bachelor, <span class="backgroundRed">about 64 percent (911) were born in the 1960s</span>.
+                </div>
+                <div class="panel">
+                    For those born in the <span class="backgroundRed">1980s</span>, only one in 10 had a master's degree or PhD.
+                </div>
+            </div>
+            <div class='step' data-step='major'>
+                <div class="subtitle">
+                    <div class="titltW">
+                        <div class="titleL"></div>
+                        <div class="titleC pc">
+                            <P>Liberal arts grads outnumber science grads<span>&nbsp;</span></p>
+                            <p>Most popular major is management science</P>
+                        </div>
+                        <div class="titleC mobile">
+                            <P>Liberal arts grads outnumber<span>&nbsp;</span></p>
+                            <p>science grads, most popular major</P>
+                            <p>is management science</p>
+                        </div>
+                        <div class="titleR"></div>
+                    </div>
+                </div>
+                <div class="space"></div>
+                <div class="panel">
+                    What did university grads study? When looking at the highest degrees attained for the 1,777 deputies that we have data for, about 66 percent (1,165) majored in the <span class="backgroundRed">liberal arts</span>, almost twice the number of science majors (612).
+                </div>
+                <div class="panel">
+                    Specifically, <span class="backgroundRed">one fifth</span> of them studied <span class="backgroundRed">management science</span>, followed by engineering, economics, law and science.
+                </div>
+                <div class="panel">
+                    Moreover, <span class="backgroundRed">122</span> deputies received <span class="backgroundRed">overseas education</span>.
+                </div>
+            </div>
+            <div class='step' data-step='party'>
+                <!-- <div class="subtitle">
+                    <div class="titltW">
+                        <div class="titleL"></div>
+                        <div class="titleC pc">
+                            <P>Most Educated Party:&nbsp;</P>
+                            <p>Jiusan Society</p>
+                        </div>
+                        <div class="titleC mobile">
+                            <P>Most Educated Party</P>
+                            <p>Jiusan Society</p>
+                        </div>
+                        <div class="titleR"></div>
+                    </div>
+                </div> -->
+                <div class="space"></div>
+                <div class="panel">
+                    Out of the total 2,975 deputies from 35 delegations, 2,172 are members of the Communist Party of China (CPC), 423 have no party affiliation, and 380 are from non-CPC parties.
+                </div>
+            </div>
+            <!-- <div class='step' data-step='birthplace'>
+                <div class="subtitle"> Birthplace </div>
+                <div class="space"></div>
+            </div> -->
+
+            <!-- Mrb -->
+            <div class="step" data-step="title3">
+                <div class="panel">
+                    Reports are often dry, but official Chinese reports can provide a glimpse into what policies and direction the country places importance on.
+                </div>
+                <div class="panel">
+                    Premier Li Keqiang delivered the 2019 government work report to deputies at the opening of this year's NPC. We took a look at the keywords that stood out and how they fit into the country's past and future.
+                </div>
+            </div>
+            <div class="step" data-step="diagram3">
+                <div class="panel">
+                    Since 1954, the 51 released government reports had a total of 977,643 words, with the 1955 report being the longest at 51,623.
+                </div>
+                <div class="panel">
+                    "Development" continues to top the word count in those reports with 5,410 mentions, while "construction," "economy" and "reform" trail right behind.
+                </div>
+            </div>
+            <div class="step" data-step="diagram4">
+                <div class="panel">
+                    Since 1954, we see that the country's priorities for development have changed.
+                </div>
+                <div class="panel">
+                    Also, attention to the quality of economic growth has increased since 2014, with greater mentions of "development models and problems."
+                </div>
+                <div class="panel">
+                    The word count for a report tends to spike whenever there is a change in NPC deputies or a five-year plan begins.
+                </div>
+            </div>
+            <div class="step" data-step="diagram5">
+                <div class="panel">
+                    Since 2005, the government work report has used quantitative indicators such as GDP, CPI, urban job creation and others to highlight the country's development.
+                </div>
+            </div>
+
+            <div class="step" data-step="title2">
+                <div class="panel">
+                    We can also look at development trends in China's legal and judicial apparatuses by analyzing work reports of the Supreme People's Court (SPC) and the Supreme People's Procuratorate (SPP). They are the country's highest court and highest prosecutorial organ, respectively.
+                </div>
+            </div>
+            <div class="step" data-step="diagram1">
+                <div class="panel">
+                    The reports, delivered to NPC deputies during the Two Sessions, show the growing emphasis on the rule of law since they were first released in 1980.
+                </div>
+                <div class="panel">
+                    <span class="backgroundRed">"Rule of law"</span> first became a key phrase in both work reports in 2001. It has remained a central focus of the reports ever since.
+                </div>
+            </div>
+            <div class="step" data-step="diagram2">
+                <div class="subtitle">
+                    <div class="titltW">
+                        <div class="titleL"></div>
+                        <div class="titleC">
+                            <p>People's Courts</p>
+                        </div>
+                        <div class="titleR"></div>
+                    </div>
+                </div>
+
+                <div class="panel" style="margin-top:50vh;">
+                    The latest SPC work report shows that in 2018, the country's highest court handled nearly 34,794 cases, among which 31,883 were concluded, up 22.1 percent and 23.5 percent year on year, respectively. Local courts handled 28 million cases and concluded 25.168 million cases, up by 8.8 percent and 10.6 percent from the year before, respectively.
+                </div>
+
+                <div class="panel">
+                    It also notes that Chinese courts concluded 28,000 graft cases involving embezzlement, bribery and dereliction of duty last year. Among the 33,000 people involved were 18 former officials at the provincial level or above.
+                </div>
+
+                <div class="subtitle" style="margin-top:50vh;">
+                    <div class="titltW">
+                        <div class="titleL"></div>
+                        <div class="titleC">
+                            <p>People's Procuratorates</p>
+                        </div>
+                        <div class="titleR"></div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    The 2019 SPP report states that in 2018, procuratorial organs in the country approved the arrest of 1,056,616 criminal suspects and prosecuted 1,692,846 criminal suspects, down 2.3 percent and 0.8 percent year on year, respectively.
+                </div>
+                <div class="panel">
+                    The report notes that violations against environmental preservation, property rights, minors and martyrs protection were severely punished in 2018.
+                </div>
+                <div class="panel">
+                    Over the past 40 years, both reports have seen an increase in terms related to civil society, and a drop in phrases like "cracking down on criminal activities."
+                </div>
+                <div class="panel">
+                    Meanwhile, terms related to economic development, judicial justice and safeguarding people's rights and interests have appeared more often.
+                </div>
+                <div class="panel">
+                    From this, we see that China's legal and judicial systems are becoming more preoccupied with the well-being of ordinary citizens.
+                </div>
+            </div>
+            
+            <!-- end: Mrb -->
+
+            <div class='step' data-step='end'>
+                <div class="space"></div>
+            </div>
+        </div>
+    </section>
+    <section id='outro'></section>
+    <!-- 结束语 -->
+    <div class="tag">
+        <img class="logo" src="img/CGTNlogo.svg" />
+        <p class="statistics">
+            Reference
+        </p>
+        <ul>
+            <li>Information on the NPC deputies comes from npc.gov.cn.</li>
+            <li>Information concerning the highest academic credentials, majors, and overseas education experience is
+                gathered
+                from open sources on the Internet.
+            </li>
+            <li>Classification of academic disciplines is based on the Discipline Catalogue of Degree Awarding and
+                Talent
+                Training approved by the Chinese Ministry of Education.
+            </li>
+            <li>Other statistics are translated from reports by the Xinhua News Agency and other media outlets.</li>
+        </ul>
+        <p class="statistics">
+            Note
+        </p>
+        <ul>
+            <li>The NPC deputies are grouped according to Chinese surname.</li>
+        </ul>
+        <p class="des">Supervisor: Jiang Heping</p>
+        <p class="des">Managing Director: Zhang Shilei</p>
+        <p class="des">Chief Editor: Chen Ran</p>
+        <p class="des">Producer: Wen Yaru</p>
+        <p class="des">Editors: Wang Xiaonan, Xia Jixuan, Henry Zheng</p>
+        <p class="des">Product and technology director: Li Jian</p>
+        <p class="des">Data Visualization Developer: Bi Jiankun</p>
+        <p class="des">Visual Designer: Fan Chenxiao</p>
+        <p class="des">Technology Support: Zhang Dongbo, Guo Chang, Jiao Bin</p>
+        <p class="des">Academic Support:</p>
+
+        <p class="des">Fang Jie, Associate Professor, School of Journalism, Renmin University</p>
+
+        <p class="des last">Zhang Guang, Professor, School of Public Affairs, Xiamen University</p>
+        <p class="height25"></p>
+        <p class="des">
+            For permission to reproduce material, please contact cooperation@cgtn.com.
+        </p>
+        <p class="des">Copyright © 2019 CGTN All Rights Reserved.</p>
+        <div class="bdsharebuttonbox social-share" data-sites="wechat,twitter,facebook,qq"
+            data-description="Portraits of the deputies to the 13th NPC." data-wechatQrcodeTitle="abc"
+            data-wechatQrcodeHelper="edc">
+            <!-- 			<a href="#" class="bds_weixin"
+          data-cmd="weixin" title="分享到微信"></a>
+          <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+          <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+          <a href="javascript:void(0)" id="copy2" class="bds_copy" data-clipboard-text='' title="分享到复制网址">
+            <p>Copy to clipboard</p>
+          </a> -->
+        </div>
+    </div>
+    <!-- <div id="Stats-output"></div> -->
+    <div id="Stats-output" style="position: fixed; z-index: 10; top: 0; left: 0;"></div>
+    <!-- <div id="Stats-output" style="opacity: 0;pointer-events: none;"></div> -->
+
+    <div id="searchPanel">
+        <select name="deputy" id="deputy" data-placeholder="Choose a deputy..." class="chosen-select">
+        </select>
+    </div>
+
+    <div id="searchButtons">
+        <div class="searchButton">&nbsp;</div>
+        <div class="closeButton">&nbsp;</div>
+    </div>
+
+    <!-- 添加分享代码 -->
+    <!-- 	<script>
+		window._bd_share_config = {
+			"common": {
+				"bdSnsKey": {},
+				"bdText": "",
+				"bdMini": "2",
+				"bdMiniList": ["weixin", "fbook", "twi", "copy"],
+				"bdPic": "",
+				"bdStyle": "0",
+				"bdSize": "32"
+			},
+			"share": {}
+		}; 
+	</script>
+	<script src="js/util/share.js"></script>
+	<script src="js/util/shareapi.js"></script> -->
+    <!-- <script src="js/lib/share/social-share.min.js"></script> -->
+    <script src="js/lib/share/jquery.share.min.js"></script>
+    <script src='js/intersection-observer.js'></script>
+    <script src='js/scrollama.js'></script>
+    <script src="js/d3.v4.min.js"></script>
+    <script src="js/sankey.js"></script>
+    <!-- Mrb -->
+    <script src="js/mrb/cc.min.js"></script>
+    <script src="js/mrb/fb.min.js"></script>
+    <script src="js/mrb/tt.js"></script>
+    <script src="js/mrb/data/diagram1.js"></script>
+    <script src="js/mrb/data/diagram2.js"></script>
+    <script src="js/mrb/data/diagram3.js"></script>
+    <script src="js/mrb/data/diagram4.js"></script>
+    <script src="js/mrb/data/diagram5.js"></script>
+    <script src="js/mrb/hack.min.js"></script>
+    <!-- end: Mrb -->
+
+    <script type="text/javascript" src="js/data.js"></script>
+    <script type="text/javascript" src="js/processData.js"></script>
+    <script type="text/javascript" src="js/fsm.js"></script>
+    <script type="text/javascript" src="js/layout.js"></script>
+    <script src='js/startScroll.js'></script>
+    <script src='js/e.js'></script>
+
+</body>
+
+</html>
